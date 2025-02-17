@@ -1,0 +1,1656 @@
+💻 Lab2 (main) $ strace -f ./main 6
+execve("./main", ["./main", "6"], 0x7ffe895e0620 /* 29 vars */) = 0
+brk(NULL)                               = 0x56484c7ad000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffc56e24ae0) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f85d36a9000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23995, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 23995, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f85d36a3000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0I\17\357\204\3$\f\221\2039x\324\224\323\236S"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f85d347a000
+mprotect(0x7f85d34a2000, 2023424, PROT_NONE) = 0
+mmap(0x7f85d34a2000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f85d34a2000
+mmap(0x7f85d3637000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f85d3637000
+mmap(0x7f85d3690000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f85d3690000
+mmap(0x7f85d3696000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f85d3696000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f85d3477000
+arch_prctl(ARCH_SET_FS, 0x7f85d3477740) = 0
+set_tid_address(0x7f85d3477a10)         = 91700
+set_robust_list(0x7f85d3477a20, 24)     = 0
+rseq(0x7f85d34780e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f85d3690000, 16384, PROT_READ) = 0
+mprotect(0x56484b0cc000, 4096, PROT_READ) = 0
+mprotect(0x7f85d36e3000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7f85d36a3000, 23995)           = 0
+openat(AT_FDCWD, "input.bin", O_RDWR)   = 3
+mmap(NULL, 800000000, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0) = 0x7f85a3986000
+write(1, "starting sorting...\n", 20starting sorting...
+)   = 20
+getrandom("\x25\x2d\x11\x65\xc8\x5a\xac\xd7", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x56484c7ad000
+brk(0x56484c7ce000)                     = 0x56484c7ce000
+rt_sigaction(SIGRT_1, {sa_handler=0x7f85d350b870, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x7f85d34bc520}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f85a3185000
+mprotect(0x7f85a3186000, 8388608, PROT_READ|PROT_WRITE) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a3985910, parent_tid=0x7f85a3985910, exit_signal=0, stack=0x7f85a3185000, stack_size=0x7fff00, tls=0x7f85a3985640}strace: Process 91701 attached
+ => {parent_tid=[91701]}, 88) = 91701
+[pid 91701] rseq(0x7f85a3985fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91700] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91701] <... rseq resumed>)         = 0
+[pid 91700] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91701] set_robust_list(0x7f85a3985920, 24 <unfinished ...>
+[pid 91700] futex(0x7f85a3985910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91701, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91701] <... set_robust_list resumed>) = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f859b185000
+[pid 91701] munmap(0x7f859b185000, 15183872) = 0
+[pid 91701] munmap(0x7f85a0000000, 51924992) = 0
+[pid 91701] mprotect(0x7f859c000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 91701] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f85a2984000
+[pid 91701] mprotect(0x7f85a2985000, 8388608, PROT_READ|PROT_WRITE) = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a3184910, parent_tid=0x7f85a3184910, exit_signal=0, stack=0x7f85a2984000, stack_size=0x7fff00, tls=0x7f85a3184640}strace: Process 91708 attached
+ <unfinished ...>
+[pid 91708] rseq(0x7f85a3184fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91708]}, 88) = 91708
+[pid 91708] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] set_robust_list(0x7f85a3184920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] <... set_robust_list resumed>) = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f85a2183000
+[pid 91701] mprotect(0x7f85a2184000, 8388608, PROT_READ|PROT_WRITE) = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91709 attached
+ <unfinished ...>
+[pid 91709] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91709]}, 88) = 91709
+[pid 91709] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91709] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91709] <... set_robust_list resumed>) = 0
+[pid 91709] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f85a1982000
+[pid 91701] mprotect(0x7f85a1983000, 8388608, PROT_READ|PROT_WRITE) = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91710 attached
+ <unfinished ...>
+[pid 91710] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91710]}, 88) = 91710
+[pid 91710] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91710] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91710] <... set_robust_list resumed>) = 0
+[pid 91710] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91710] mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f8594000000
+[pid 91710] munmap(0x7f8598000000, 67108864) = 0
+[pid 91710] mprotect(0x7f8594000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 91710] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f85a1181000
+[pid 91710] mprotect(0x7f85a1182000, 8388608, PROT_READ|PROT_WRITE) = 0
+[pid 91710] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91710] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91711 attached
+ <unfinished ...>
+[pid 91711] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91710] <... clone3 resumed> => {parent_tid=[91711]}, 88) = 91711
+[pid 91711] <... rseq resumed>)         = 0
+[pid 91710] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91711] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91710] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91711] <... set_robust_list resumed>) = 0
+[pid 91711] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91710] futex(0x7f85a1981910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91711, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91711] mmap(0x7f8598000000, 67108864, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f8598000000
+[pid 91711] mprotect(0x7f8598000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 91711] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91711] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91711] exit(0)                     = ?
+[pid 91711] +++ exited with 0 +++
+[pid 91710] <... futex resumed>)        = 0
+[pid 91710] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91710] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91710] exit(0)                     = ?
+[pid 91710] +++ exited with 0 +++
+[pid 91709] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91709] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91712 attached
+ <unfinished ...>
+[pid 91712] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91709] <... clone3 resumed> => {parent_tid=[91712]}, 88) = 91712
+[pid 91712] <... rseq resumed>)         = 0
+[pid 91709] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91712] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91709] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91712] <... set_robust_list resumed>) = 0
+[pid 91712] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91709] mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f85a0980000
+[pid 91709] mprotect(0x7f85a0981000, 8388608, PROT_READ|PROT_WRITE) = 0
+[pid 91709] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91709] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91713 attached
+ <unfinished ...>
+[pid 91713] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053) = 0
+[pid 91709] <... clone3 resumed> => {parent_tid=[91713]}, 88) = 91713
+[pid 91713] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91709] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91713] <... set_robust_list resumed>) = 0
+[pid 91713] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91709] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91713] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91713] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91713] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91713] exit(0)                     = ?
+[pid 91713] +++ exited with 0 +++
+[pid 91700] <... futex resumed>)        = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+[pid 91700] --- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+[pid 91700] futex(0x7f85a3985910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91701, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91709] futex(0x7f85a1981910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91712, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91714 attached
+ <unfinished ...>
+[pid 91714] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91714]}, 88) = 91714
+[pid 91714] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91714] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91714] <... set_robust_list resumed>) = 0
+[pid 91714] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91714, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91714] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91714] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91714] exit(0)                     = ?
+[pid 91714] +++ exited with 0 +++
+[pid 91701] <... futex resumed>)        = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91715 attached
+ <unfinished ...>
+[pid 91715] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91715]}, 88) = 91715
+[pid 91715] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91715] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91715] <... set_robust_list resumed>) = 0
+[pid 91715] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91715, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91715] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91715] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91715] exit(0)                     = ?
+[pid 91715] +++ exited with 0 +++
+[pid 91701] <... futex resumed>)        = 0
+[pid 91712] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91712] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91716 attached
+ <unfinished ...>
+[pid 91716] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91712] <... clone3 resumed> => {parent_tid=[91716]}, 88) = 91716
+[pid 91716] <... rseq resumed>)         = 0
+[pid 91712] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91716] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91712] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91716] <... set_robust_list resumed>) = 0
+[pid 91716] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91712] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91716, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91716] mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f858c000000
+[pid 91716] munmap(0x7f8590000000, 67108864) = 0
+[pid 91716] mprotect(0x7f858c000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 91716] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91716] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91716] exit(0)                     = ?
+[pid 91716] +++ exited with 0 +++
+[pid 91712] <... futex resumed>)        = 0
+[pid 91712] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91712] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91717 attached
+ <unfinished ...>
+[pid 91717] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91712] <... clone3 resumed> => {parent_tid=[91717]}, 88) = 91717
+[pid 91717] <... rseq resumed>)         = 0
+[pid 91712] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91717] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91712] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91717] <... set_robust_list resumed>) = 0
+[pid 91717] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91717] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91717] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91717] exit(0)                     = ?
+[pid 91717] +++ exited with 0 +++
+[pid 91712] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91712] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91722 attached
+ <unfinished ...>
+[pid 91722] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91712] <... clone3 resumed> => {parent_tid=[91722]}, 88) = 91722
+[pid 91722] <... rseq resumed>)         = 0
+[pid 91712] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91722] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91712] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91722] <... set_robust_list resumed>) = 0
+[pid 91722] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91712] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91722, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91722] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91722] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91722] exit(0)                     = ?
+[pid 91722] +++ exited with 0 +++
+[pid 91712] <... futex resumed>)        = 0
+[pid 91712] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91712] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91712] exit(0)                     = ?
+[pid 91712] +++ exited with 0 +++
+[pid 91709] <... futex resumed>)        = 0
+[pid 91709] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91709] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91709] exit(0)                     = ?
+[pid 91709] +++ exited with 0 +++
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91725 attached
+ <unfinished ...>
+[pid 91725] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91725]}, 88) = 91725
+[pid 91725] <... rseq resumed>)         = 0
+[pid 91725] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91725] <... set_robust_list resumed>) = 0
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91725] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91726 attached
+ <unfinished ...>
+[pid 91726] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91726]}, 88) = 91726
+[pid 91726] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91726] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91726] <... set_robust_list resumed>) = 0
+[pid 91726] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91726, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91726] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91726] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91726] exit(0)                     = ?
+[pid 91726] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] futex(0x7f85a1981910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91725, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91725] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91725] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91727 attached
+ <unfinished ...>
+[pid 91727] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91725] <... clone3 resumed> => {parent_tid=[91727]}, 88) = 91727
+[pid 91727] <... rseq resumed>)         = 0
+[pid 91725] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91727] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91725] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91727] <... set_robust_list resumed>) = 0
+[pid 91727] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91725] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91727, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91727] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91727] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91727] exit(0)                     = ?
+[pid 91727] +++ exited with 0 +++
+[pid 91725] <... futex resumed>)        = 0
+[pid 91725] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91725] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91728 attached
+ <unfinished ...>
+[pid 91728] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91725] <... clone3 resumed> => {parent_tid=[91728]}, 88) = 91728
+[pid 91728] <... rseq resumed>)         = 0
+[pid 91725] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91728] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91725] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91728] <... set_robust_list resumed>) = 0
+[pid 91728] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91725] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91728, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91728] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91728] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91728] exit(0)                     = ?
+[pid 91728] +++ exited with 0 +++
+[pid 91725] <... futex resumed>)        = 0
+[pid 91725] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91725] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91729 attached
+ <unfinished ...>
+[pid 91729] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91725] <... clone3 resumed> => {parent_tid=[91729]}, 88) = 91729
+[pid 91729] <... rseq resumed>)         = 0
+[pid 91725] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91729] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91725] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91729] <... set_robust_list resumed>) = 0
+[pid 91729] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91725] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91729, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91729] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91729] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91729] exit(0)                     = ?
+[pid 91729] +++ exited with 0 +++
+[pid 91725] <... futex resumed>)        = 0
+[pid 91725] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91725] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91730 attached
+ <unfinished ...>
+[pid 91730] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91725] <... clone3 resumed> => {parent_tid=[91730]}, 88) = 91730
+[pid 91730] <... rseq resumed>)         = 0
+[pid 91725] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91730] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91725] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91730] <... set_robust_list resumed>) = 0
+[pid 91730] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91725] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91730, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91730] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91730] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91730] exit(0)                     = ?
+[pid 91730] +++ exited with 0 +++
+[pid 91725] <... futex resumed>)        = 0
+[pid 91725] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91725] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91725] exit(0)                     = ?
+[pid 91725] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91731 attached
+ <unfinished ...>
+[pid 91731] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91731]}, 88) = 91731
+[pid 91731] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91731] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91731] <... set_robust_list resumed>) = 0
+[pid 91731] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91732 attached
+ <unfinished ...>
+[pid 91732] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91732]}, 88) = 91732
+[pid 91732] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91732] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91732] <... set_robust_list resumed>) = 0
+[pid 91732] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91732, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91731] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91731] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91731] exit(0)                     = ?
+[pid 91731] +++ exited with 0 +++
+[pid 91732] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91732] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91732] exit(0)                     = ?
+[pid 91732] +++ exited with 0 +++
+[pid 91701] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91733 attached
+ <unfinished ...>
+[pid 91733] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053) = 0
+[pid 91708] <... clone3 resumed> => {parent_tid=[91733]}, 88) = 91733
+[pid 91733] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91733] <... set_robust_list resumed>) = 0
+[pid 91733] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91733] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91734 attached
+ <unfinished ...>
+[pid 91734] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91734]}, 88) = 91734
+[pid 91734] <... rseq resumed>)         = 0
+[pid 91734] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91734] <... set_robust_list resumed>) = 0
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91734] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91734, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91734] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91734] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91734] exit(0)                     = ?
+[pid 91734] +++ exited with 0 +++
+[pid 91701] <... futex resumed>)        = 0
+[pid 91733] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91733] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91733] exit(0)                     = ?
+[pid 91733] +++ exited with 0 +++
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91735 attached
+ <unfinished ...>
+[pid 91735] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91701] <... clone3 resumed> => {parent_tid=[91735]}, 88) = 91735
+[pid 91735] <... rseq resumed>)         = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91735] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91735] <... set_robust_list resumed>) = 0
+[pid 91735] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91735] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91735] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91735] exit(0)                     = ?
+[pid 91735] +++ exited with 0 +++
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91701] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91736 attached
+ <unfinished ...>
+[pid 91736] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053) = 0
+[pid 91701] <... clone3 resumed> => {parent_tid=[91736]}, 88) = 91736
+[pid 91736] set_robust_list(0x7f85a1180920, 24) = 0
+[pid 91701] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91736] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91701] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91701] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91736, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91736] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91736] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91736] exit(0)                     = ?
+[pid 91736] +++ exited with 0 +++
+[pid 91701] <... futex resumed>)        = 0
+[pid 91701] futex(0x7f85a3184910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91708, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91737 attached
+ <unfinished ...>
+[pid 91737] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91737]}, 88) = 91737
+[pid 91737] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91737] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91737] <... set_robust_list resumed>) = 0
+[pid 91737] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91738 attached
+ <unfinished ...>
+[pid 91738] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91738]}, 88) = 91738
+[pid 91738] <... rseq resumed>)         = 0
+[pid 91738] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91738] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91738] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91738, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91737] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91737] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91737] exit(0)                     = ?
+[pid 91737] +++ exited with 0 +++
+[pid 91738] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91738] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91738] exit(0)                     = ?
+[pid 91738] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91739 attached
+ <unfinished ...>
+[pid 91739] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91739]}, 88) = 91739
+[pid 91739] <... rseq resumed>)         = 0
+[pid 91739] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91739] <... set_robust_list resumed>) = 0
+[pid 91739] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91739] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91740 attached
+ <unfinished ...>
+[pid 91740] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053) = 0
+[pid 91708] <... clone3 resumed> => {parent_tid=[91740]}, 88) = 91740
+[pid 91740] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91740] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91740] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91741 attached
+ <unfinished ...>
+[pid 91741] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91741]}, 88) = 91741
+[pid 91741] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91741] set_robust_list(0x7f85a2182920, 24) = 0
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91741] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91740] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91740] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91742 attached
+ <unfinished ...>
+[pid 91742] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91740] <... clone3 resumed> => {parent_tid=[91742]}, 88) = 91742
+[pid 91740] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91742] <... rseq resumed>)         = 0
+[pid 91742] set_robust_list(0x7f85a1180920, 24) = 0
+[pid 91742] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91741, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91742] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91742] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91742] exit(0)                     = ?
+[pid 91742] +++ exited with 0 +++
+[pid 91741] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91741] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91741] exit(0)                     = ?
+[pid 91741] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91739] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
+[pid 91708] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91740, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91739] <... rt_sigprocmask resumed>[], 8) = 0
+[pid 91739] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91743 attached
+ <unfinished ...>
+[pid 91743] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91739] <... clone3 resumed> => {parent_tid=[91743]}, 88) = 91743
+[pid 91743] <... rseq resumed>)         = 0
+[pid 91739] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91743] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91739] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91743] <... set_robust_list resumed>) = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91739] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91743, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91740] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91740] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91740] exit(0)                     = ?
+[pid 91740] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] futex(0x7f85a1981910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91739, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91744 attached
+ <unfinished ...>
+[pid 91744] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91743] <... clone3 resumed> => {parent_tid=[91744]}, 88) = 91744
+[pid 91744] <... rseq resumed>)         = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91744] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91744] <... set_robust_list resumed>) = 0
+[pid 91744] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91744] mmap(0x7f8590000000, 67108864, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f8590000000
+[pid 91744] mprotect(0x7f8590000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 91744] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91744] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91745 attached
+ <unfinished ...>
+[pid 91745] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91744] <... clone3 resumed> => {parent_tid=[91745]}, 88) = 91745
+[pid 91745] <... rseq resumed>)         = 0
+[pid 91744] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91745] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91744] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91745] <... set_robust_list resumed>) = 0
+[pid 91745] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91743] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91744, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91744] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91745, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91745] mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f8584000000
+[pid 91745] munmap(0x7f8588000000, 67108864) = 0
+[pid 91745] mprotect(0x7f8584000000, 135168, PROT_READ|PROT_WRITE) = 0
+[pid 91745] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91745] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91745] exit(0)                     = ?
+[pid 91745] +++ exited with 0 +++
+[pid 91744] <... futex resumed>)        = 0
+[pid 91744] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91744] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91744] exit(0)                     = ?
+[pid 91744] +++ exited with 0 +++
+[pid 91743] <... futex resumed>)        = 0
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91746 attached
+ <unfinished ...>
+[pid 91746] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91743] <... clone3 resumed> => {parent_tid=[91746]}, 88) = 91746
+[pid 91746] <... rseq resumed>)         = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91746] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91746] <... set_robust_list resumed>) = 0
+[pid 91746] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91746] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91746] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91747 attached
+ <unfinished ...>
+[pid 91747] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91746] <... clone3 resumed> => {parent_tid=[91747]}, 88) = 91747
+[pid 91747] <... rseq resumed>)         = 0
+[pid 91746] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91747] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91746] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91747] <... set_robust_list resumed>) = 0
+[pid 91747] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91746] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91747, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91747] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91747] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91747] exit(0)                     = ?
+[pid 91747] +++ exited with 0 +++
+[pid 91746] <... futex resumed>)        = 0
+[pid 91746] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91746] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91746] exit(0)                     = ?
+[pid 91746] +++ exited with 0 +++
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91748 attached
+ <unfinished ...>
+[pid 91748] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91743] <... clone3 resumed> => {parent_tid=[91748]}, 88) = 91748
+[pid 91748] <... rseq resumed>)         = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91748] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91748] <... set_robust_list resumed>) = 0
+[pid 91748] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91748] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91748] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91748] exit(0)                     = ?
+[pid 91748] +++ exited with 0 +++
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91749 attached
+ <unfinished ...>
+[pid 91749] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91743] <... clone3 resumed> => {parent_tid=[91749]}, 88) = 91749
+[pid 91749] <... rseq resumed>)         = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91749] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91749] <... set_robust_list resumed>) = 0
+[pid 91749] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91750 attached
+ <unfinished ...>
+[pid 91750] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91743] <... clone3 resumed> => {parent_tid=[91750]}, 88) = 91750
+[pid 91750] <... rseq resumed>)         = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91750] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91750] <... set_robust_list resumed>) = 0
+[pid 91750] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91743] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91750, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91750] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91750] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91750] exit(0)                     = ?
+[pid 91750] +++ exited with 0 +++
+[pid 91743] <... futex resumed>)        = 0
+[pid 91743] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91749, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91749] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91749] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91749] exit(0)                     = ?
+[pid 91749] +++ exited with 0 +++
+[pid 91743] <... futex resumed>)        = 0
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91751 attached
+ <unfinished ...>
+[pid 91751] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053) = 0
+[pid 91751] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91743] <... clone3 resumed> => {parent_tid=[91751]}, 88) = 91751
+[pid 91751] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91751] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91743] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91752 attached
+ <unfinished ...>
+[pid 91752] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91743] <... clone3 resumed> => {parent_tid=[91752]}, 88) = 91752
+[pid 91752] <... rseq resumed>)         = 0
+[pid 91743] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91752] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91743] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91752] <... set_robust_list resumed>) = 0
+[pid 91752] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91743] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91752, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91752] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91752] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91752] exit(0)                     = ?
+[pid 91752] +++ exited with 0 +++
+[pid 91743] <... futex resumed>)        = 0
+[pid 91743] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91751, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91751] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91751] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91753 attached
+ <unfinished ...>
+[pid 91753] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91751] <... clone3 resumed> => {parent_tid=[91753]}, 88) = 91753
+[pid 91753] <... rseq resumed>)         = 0
+[pid 91751] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91753] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91751] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91753] <... set_robust_list resumed>) = 0
+[pid 91753] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91753] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91753] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91753] exit(0)                     = ?
+[pid 91753] +++ exited with 0 +++
+[pid 91751] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91751] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91754 attached
+ <unfinished ...>
+[pid 91754] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91751] <... clone3 resumed> => {parent_tid=[91754]}, 88) = 91754
+[pid 91754] <... rseq resumed>)         = 0
+[pid 91751] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91754] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91751] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91754] <... set_robust_list resumed>) = 0
+[pid 91754] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91751] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91754, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91754] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91754] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91754] exit(0)                     = ?
+[pid 91754] +++ exited with 0 +++
+[pid 91751] <... futex resumed>)        = 0
+[pid 91751] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91751] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91751] exit(0)                     = ?
+[pid 91751] +++ exited with 0 +++
+[pid 91743] <... futex resumed>)        = 0
+[pid 91743] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91743] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91743] exit(0)                     = ?
+[pid 91743] +++ exited with 0 +++
+[pid 91739] <... futex resumed>)        = 0
+[pid 91739] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91739] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91755 attached
+ <unfinished ...>
+[pid 91755] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91739] <... clone3 resumed> => {parent_tid=[91755]}, 88) = 91755
+[pid 91755] <... rseq resumed>)         = 0
+[pid 91739] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91755] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91739] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91755] <... set_robust_list resumed>) = 0
+[pid 91755] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91739] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91739] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91756 attached
+ <unfinished ...>
+[pid 91756] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91739] <... clone3 resumed> => {parent_tid=[91756]}, 88) = 91756
+[pid 91756] <... rseq resumed>)         = 0
+[pid 91739] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91756] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91739] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91756] <... set_robust_list resumed>) = 0
+[pid 91756] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91739] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91739] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91757 attached
+ => {parent_tid=[91757]}, 88) = 91757
+[pid 91739] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91757] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053) = 0
+[pid 91757] set_robust_list(0x7f85a1180920, 24) = 0
+[pid 91757] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91739] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91757, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91757] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91757] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91757] exit(0)                     = ?
+[pid 91757] +++ exited with 0 +++
+[pid 91739] <... futex resumed>)        = 0
+[pid 91739] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91756, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91756] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91756] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91756] exit(0)                     = ?
+[pid 91756] +++ exited with 0 +++
+[pid 91739] <... futex resumed>)        = 0
+[pid 91739] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91755, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91755] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91755] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91758 attached
+ <unfinished ...>
+[pid 91758] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91755] <... clone3 resumed> => {parent_tid=[91758]}, 88) = 91758
+[pid 91758] <... rseq resumed>)         = 0
+[pid 91755] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91758] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91755] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91758] <... set_robust_list resumed>) = 0
+[pid 91758] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91758] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91758] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91759 attached
+ <unfinished ...>
+[pid 91759] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91758] <... clone3 resumed> => {parent_tid=[91759]}, 88) = 91759
+[pid 91759] <... rseq resumed>)         = 0
+[pid 91758] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91759] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91758] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91759] <... set_robust_list resumed>) = 0
+[pid 91759] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91758] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91759, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91759] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91759] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91759] exit(0)                     = ?
+[pid 91759] +++ exited with 0 +++
+[pid 91758] <... futex resumed>)        = 0
+[pid 91758] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91758] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91758] exit(0)                     = ?
+[pid 91758] +++ exited with 0 +++
+[pid 91755] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91755] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91766 attached
+ <unfinished ...>
+[pid 91766] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91755] <... clone3 resumed> => {parent_tid=[91766]}, 88) = 91766
+[pid 91766] <... rseq resumed>)         = 0
+[pid 91755] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91766] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91755] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91766] <... set_robust_list resumed>) = 0
+[pid 91766] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91755] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91766, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91766] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91766] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91766] exit(0)                     = ?
+[pid 91766] +++ exited with 0 +++
+[pid 91755] <... futex resumed>)        = 0
+[pid 91755] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91755] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91769 attached
+ <unfinished ...>
+[pid 91769] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91755] <... clone3 resumed> => {parent_tid=[91769]}, 88) = 91769
+[pid 91769] <... rseq resumed>)         = 0
+[pid 91755] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91769] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91755] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91769] <... set_robust_list resumed>) = 0
+[pid 91769] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91769] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91769] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91770 attached
+ <unfinished ...>
+[pid 91770] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91769] <... clone3 resumed> => {parent_tid=[91770]}, 88) = 91770
+[pid 91770] <... rseq resumed>)         = 0
+[pid 91769] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91770] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91769] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91770] <... set_robust_list resumed>) = 0
+[pid 91770] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91769] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91770, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91770] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91770] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91770] exit(0)                     = ?
+[pid 91770] +++ exited with 0 +++
+[pid 91769] <... futex resumed>)        = 0
+[pid 91769] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91769] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91769] exit(0)                     = ?
+[pid 91769] +++ exited with 0 +++
+[pid 91755] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91755] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91771 attached
+ <unfinished ...>
+[pid 91771] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91755] <... clone3 resumed> => {parent_tid=[91771]}, 88) = 91771
+[pid 91771] <... rseq resumed>)         = 0
+[pid 91755] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91771] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91755] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91771] <... set_robust_list resumed>) = 0
+[pid 91771] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91771] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91771] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91771] exit(0)                     = ?
+[pid 91771] +++ exited with 0 +++
+[pid 91755] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91755] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91772 attached
+ <unfinished ...>
+[pid 91772] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91755] <... clone3 resumed> => {parent_tid=[91772]}, 88) = 91772
+[pid 91772] <... rseq resumed>)         = 0
+[pid 91755] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91772] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91755] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91772] <... set_robust_list resumed>) = 0
+[pid 91772] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91755] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91772, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91772] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91772] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91772] exit(0)                     = ?
+[pid 91772] +++ exited with 0 +++
+[pid 91755] <... futex resumed>)        = 0
+[pid 91755] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91755] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91755] exit(0)                     = ?
+[pid 91755] +++ exited with 0 +++
+[pid 91739] <... futex resumed>)        = 0
+[pid 91739] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91739] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91739] exit(0)                     = ?
+[pid 91739] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91775 attached
+ <unfinished ...>
+[pid 91775] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91775]}, 88) = 91775
+[pid 91775] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91775] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91775] <... set_robust_list resumed>) = 0
+[pid 91775] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91775] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91775] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91776 attached
+ <unfinished ...>
+[pid 91776] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91775] <... clone3 resumed> => {parent_tid=[91776]}, 88) = 91776
+[pid 91776] <... rseq resumed>)         = 0
+[pid 91776] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91775] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91776] <... set_robust_list resumed>) = 0
+[pid 91775] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91776] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91776] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91776] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91777 attached
+ <unfinished ...>
+[pid 91777] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91776] <... clone3 resumed> => {parent_tid=[91777]}, 88) = 91777
+[pid 91777] <... rseq resumed>)         = 0
+[pid 91776] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91777] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91776] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91777] <... set_robust_list resumed>) = 0
+[pid 91777] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91777] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91777] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91778 attached
+ <unfinished ...>
+[pid 91778] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91777] <... clone3 resumed> => {parent_tid=[91778]}, 88) = 91778
+[pid 91778] <... rseq resumed>)         = 0
+[pid 91778] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91777] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91778] <... set_robust_list resumed>) = 0
+[pid 91777] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91778] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91777] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91778, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91778] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91778] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91778] exit(0)                     = ?
+[pid 91778] +++ exited with 0 +++
+[pid 91777] <... futex resumed>)        = 0
+[pid 91777] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91777] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91777] exit(0)                     = ?
+[pid 91777] +++ exited with 0 +++
+[pid 91775] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91775] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91779 attached
+ <unfinished ...>
+[pid 91779] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91775] <... clone3 resumed> => {parent_tid=[91779]}, 88) = 91779
+[pid 91779] <... rseq resumed>)         = 0
+[pid 91775] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91779] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91775] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91779] <... set_robust_list resumed>) = 0
+[pid 91779] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91779] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91779] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91779] exit(0)                     = ?
+[pid 91779] +++ exited with 0 +++
+[pid 91775] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91775] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91780 attached
+ => {parent_tid=[91780]}, 88) = 91780
+[pid 91780] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91775] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91780] <... rseq resumed>)         = 0
+[pid 91775] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91780] set_robust_list(0x7f85a1180920, 24) = 0
+[pid 91780] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91775] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91780, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91780] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91780] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91780] exit(0)                     = ?
+[pid 91780] +++ exited with 0 +++
+[pid 91775] <... futex resumed>)        = 0
+[pid 91775] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91775] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91781 attached
+ => {parent_tid=[91781]}, 88) = 91781
+[pid 91781] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91775] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91781] <... rseq resumed>)         = 0
+[pid 91775] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91781] set_robust_list(0x7f85a1180920, 24) = 0
+[pid 91781] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91776] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91776] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91776] exit(0)                     = ?
+[pid 91776] +++ exited with 0 +++
+[pid 91781] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91781] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91781] exit(0)                     = ?
+[pid 91781] +++ exited with 0 +++
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91782 attached
+ <unfinished ...>
+[pid 91782] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91782]}, 88) = 91782
+[pid 91782] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91782] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91782] <... set_robust_list resumed>) = 0
+[pid 91782] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91782, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91782] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91782] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91782] exit(0)                     = ?
+[pid 91782] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91783 attached
+ <unfinished ...>
+[pid 91783] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91783]}, 88) = 91783
+[pid 91783] <... rseq resumed>)         = 0
+[pid 91783] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91783] <... set_robust_list resumed>) = 0
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91783, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91775] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91775] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91784 attached
+ <unfinished ...>
+[pid 91784] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91775] <... clone3 resumed> => {parent_tid=[91784]}, 88) = 91784
+[pid 91784] <... rseq resumed>)         = 0
+[pid 91775] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91784] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91775] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91784] <... set_robust_list resumed>) = 0
+[pid 91784] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91784] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91784] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91784] exit(0)                     = ?
+[pid 91784] +++ exited with 0 +++
+[pid 91775] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91775] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91775] exit(0)                     = ?
+[pid 91775] +++ exited with 0 +++
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91791 attached
+ <unfinished ...>
+[pid 91791] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91791]}, 88) = 91791
+[pid 91791] <... rseq resumed>)         = 0
+[pid 91791] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91791] <... set_robust_list resumed>) = 0
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91791] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91791] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91791] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91792 attached
+ <unfinished ...>
+[pid 91792] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91791] <... clone3 resumed> => {parent_tid=[91792]}, 88) = 91792
+[pid 91792] <... rseq resumed>)         = 0
+[pid 91791] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91792] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91791] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91792] <... set_robust_list resumed>) = 0
+[pid 91792] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91791] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91792, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91783] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91791, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91792] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91792] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91792] exit(0)                     = ?
+[pid 91792] +++ exited with 0 +++
+[pid 91791] <... futex resumed>)        = 0
+[pid 91791] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91791] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91791] exit(0)                     = ?
+[pid 91791] +++ exited with 0 +++
+[pid 91783] <... futex resumed>)        = 0
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91793 attached
+ <unfinished ...>
+[pid 91793] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91793]}, 88) = 91793
+[pid 91793] <... rseq resumed>)         = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91793] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91793] <... set_robust_list resumed>) = 0
+[pid 91793] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91783] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91793, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91793] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91793] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91793] exit(0)                     = ?
+[pid 91793] +++ exited with 0 +++
+[pid 91783] <... futex resumed>)        = 0
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91794 attached
+ <unfinished ...>
+[pid 91794] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91794]}, 88) = 91794
+[pid 91794] <... rseq resumed>)         = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91794] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91794] <... set_robust_list resumed>) = 0
+[pid 91794] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91795 attached
+ <unfinished ...>
+[pid 91795] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91795]}, 88) = 91795
+[pid 91795] <... rseq resumed>)         = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91795] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91795] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91795] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91795] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91795] exit(0)                     = ?
+[pid 91795] +++ exited with 0 +++
+[pid 91783] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91794, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91794] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91794] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91794] exit(0)                     = ?
+[pid 91794] +++ exited with 0 +++
+[pid 91783] <... futex resumed>)        = 0
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91796 attached
+ <unfinished ...>
+[pid 91796] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91796]}, 88) = 91796
+[pid 91796] <... rseq resumed>)         = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91796] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91796] <... set_robust_list resumed>) = 0
+[pid 91796] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91796] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91796] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91797 attached
+ <unfinished ...>
+[pid 91797] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91796] <... clone3 resumed> => {parent_tid=[91797]}, 88) = 91797
+[pid 91797] <... rseq resumed>)         = 0
+[pid 91796] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91797] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91796] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91797] <... set_robust_list resumed>) = 0
+[pid 91797] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91797] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91797] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91797] exit(0)                     = ?
+[pid 91797] +++ exited with 0 +++
+[pid 91796] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91796] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91796] exit(0)                     = ?
+[pid 91796] +++ exited with 0 +++
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91798 attached
+ <unfinished ...>
+[pid 91798] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91798]}, 88) = 91798
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91798] <... rseq resumed>)         = 0
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91798] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91798] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91798] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91798] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91798] exit(0)                     = ?
+[pid 91798] +++ exited with 0 +++
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91799 attached
+ <unfinished ...>
+[pid 91799] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91799]}, 88) = 91799
+[pid 91799] <... rseq resumed>)         = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91799] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91799] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91783] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91799, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91799] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91799] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91799] exit(0)                     = ?
+[pid 91799] +++ exited with 0 +++
+[pid 91783] <... futex resumed>)        = 0
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91783] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91800 attached
+ <unfinished ...>
+[pid 91800] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91783] <... clone3 resumed> => {parent_tid=[91800]}, 88) = 91800
+[pid 91800] <... rseq resumed>)         = 0
+[pid 91783] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91800] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91783] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91800] <... set_robust_list resumed>) = 0
+[pid 91800] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91783] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91800, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91800] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91800] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91800] exit(0)                     = ?
+[pid 91800] +++ exited with 0 +++
+[pid 91783] <... futex resumed>)        = 0
+[pid 91783] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91783] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91783] exit(0)                     = ?
+[pid 91783] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91801 attached
+ <unfinished ...>
+[pid 91801] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91801]}, 88) = 91801
+[pid 91801] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91801] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91801] <... set_robust_list resumed>) = 0
+[pid 91801] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91802 attached
+ <unfinished ...>
+[pid 91802] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91802]}, 88) = 91802
+[pid 91802] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91802] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91802] <... set_robust_list resumed>) = 0
+[pid 91802] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91803 attached
+ <unfinished ...>
+[pid 91803] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053) = 0
+[pid 91803] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91803]}, 88) = 91803
+[pid 91803] <... set_robust_list resumed>) = 0
+[pid 91803] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91803, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91803] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91803] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91803] exit(0)                     = ?
+[pid 91803] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91802, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91802] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91802] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91804 attached
+ <unfinished ...>
+[pid 91804] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91802] <... clone3 resumed> => {parent_tid=[91804]}, 88) = 91804
+[pid 91804] <... rseq resumed>)         = 0
+[pid 91802] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91804] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91802] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91804] <... set_robust_list resumed>) = 0
+[pid 91804] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91802] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91804, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91804] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91804] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91804] exit(0)                     = ?
+[pid 91804] +++ exited with 0 +++
+[pid 91802] <... futex resumed>)        = 0
+[pid 91801] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91801] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91805 attached
+ <unfinished ...>
+[pid 91805] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91801] <... clone3 resumed> => {parent_tid=[91805]}, 88) = 91805
+[pid 91805] <... rseq resumed>)         = 0
+[pid 91801] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91805] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91801] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91805] <... set_robust_list resumed>) = 0
+[pid 91805] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91801] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91805, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91805] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91805] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91805] exit(0)                     = ?
+[pid 91805] +++ exited with 0 +++
+[pid 91801] <... futex resumed>)        = 0
+[pid 91801] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91801] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91806 attached
+ <unfinished ...>
+[pid 91806] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91801] <... clone3 resumed> => {parent_tid=[91806]}, 88) = 91806
+[pid 91806] <... rseq resumed>)         = 0
+[pid 91801] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91806] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91806] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91801] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91806, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91806] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91806] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91806] exit(0)                     = ?
+[pid 91806] +++ exited with 0 +++
+[pid 91801] <... futex resumed>)        = 0
+[pid 91801] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91801] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91807 attached
+ <unfinished ...>
+[pid 91807] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91801] <... clone3 resumed> => {parent_tid=[91807]}, 88) = 91807
+[pid 91801] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91807] <... rseq resumed>)         = 0
+[pid 91807] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91807] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91801] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91807, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91802] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91802] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91802] exit(0)                     = ?
+[pid 91802] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91801, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91807] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91807] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91810 attached
+ <unfinished ...>
+[pid 91810] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91807] <... clone3 resumed> => {parent_tid=[91810]}, 88) = 91810
+[pid 91810] <... rseq resumed>)         = 0
+[pid 91810] set_robust_list(0x7f85a2182920, 24) = 0
+[pid 91810] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91807] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91810] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91807] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91807] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91810, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91810] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91810] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91810] exit(0)                     = ?
+[pid 91810] +++ exited with 0 +++
+[pid 91807] <... futex resumed>)        = 0
+[pid 91807] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91807] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91811 attached
+ <unfinished ...>
+[pid 91811] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91807] <... clone3 resumed> => {parent_tid=[91811]}, 88) = 91811
+[pid 91811] <... rseq resumed>)         = 0
+[pid 91811] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91807] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91811] <... set_robust_list resumed>) = 0
+[pid 91807] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91811] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91807] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91811, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91811] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91811] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91811] exit(0)                     = ?
+[pid 91811] +++ exited with 0 +++
+[pid 91807] <... futex resumed>)        = 0
+[pid 91807] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91807] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91807] exit(0)                     = ?
+[pid 91807] +++ exited with 0 +++
+[pid 91801] <... futex resumed>)        = 0
+[pid 91801] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91801] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91801] exit(0)                     = ?
+[pid 91801] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91815 attached
+ <unfinished ...>
+[pid 91815] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91815]}, 88) = 91815
+[pid 91815] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91815] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91815] <... set_robust_list resumed>) = 0
+[pid 91815] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91815] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91815] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91819 attached
+ <unfinished ...>
+[pid 91819] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91815] <... clone3 resumed> => {parent_tid=[91819]}, 88) = 91819
+[pid 91819] <... rseq resumed>)         = 0
+[pid 91815] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91819] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91815] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91819] <... set_robust_list resumed>) = 0
+[pid 91819] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91820 attached
+ <unfinished ...>
+[pid 91820] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91820]}, 88) = 91820
+[pid 91820] <... rseq resumed>)         = 0
+[pid 91820] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91820] <... set_robust_list resumed>) = 0
+[pid 91820] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91820] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91815] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91819, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91820] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91820] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91820] exit(0)                     = ?
+[pid 91820] +++ exited with 0 +++
+[pid 91708] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91815, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91819] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91819] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91821 attached
+ <unfinished ...>
+[pid 91821] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91819] <... clone3 resumed> => {parent_tid=[91821]}, 88) = 91821
+[pid 91821] <... rseq resumed>)         = 0
+[pid 91819] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91821] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91819] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91821] <... set_robust_list resumed>) = 0
+[pid 91821] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91821] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91821] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91821] exit(0)                     = ?
+[pid 91821] +++ exited with 0 +++
+[pid 91819] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91819] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91819] exit(0)                     = ?
+[pid 91819] +++ exited with 0 +++
+[pid 91815] <... futex resumed>)        = 0
+[pid 91815] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91815] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91815] exit(0)                     = ?
+[pid 91815] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1981910, parent_tid=0x7f85a1981910, exit_signal=0, stack=0x7f85a1181000, stack_size=0x7fff00, tls=0x7f85a1981640}strace: Process 91822 attached
+ <unfinished ...>
+[pid 91822] rseq(0x7f85a1981fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] <... clone3 resumed> => {parent_tid=[91822]}, 88) = 91822
+[pid 91822] <... rseq resumed>)         = 0
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91822] set_robust_list(0x7f85a1981920, 24 <unfinished ...>
+[pid 91708] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91822] <... set_robust_list resumed>) = 0
+[pid 91822] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91822] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91822] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a1180910, parent_tid=0x7f85a1180910, exit_signal=0, stack=0x7f85a0980000, stack_size=0x7fff00, tls=0x7f85a1180640}strace: Process 91823 attached
+ <unfinished ...>
+[pid 91823] rseq(0x7f85a1180fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91822] <... clone3 resumed> => {parent_tid=[91823]}, 88) = 91823
+[pid 91823] <... rseq resumed>)         = 0
+[pid 91823] set_robust_list(0x7f85a1180920, 24 <unfinished ...>
+[pid 91822] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91823] <... set_robust_list resumed>) = 0
+[pid 91822] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91823] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
+[pid 91823] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91708] <... rt_sigprocmask resumed>[], 8) = 0
+[pid 91708] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91824 attached
+ => {parent_tid=[91824]}, 88) = 91824
+[pid 91824] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91708] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91824] <... rseq resumed>)         = 0
+[pid 91824] set_robust_list(0x7f85a2983920, 24) = 0
+[pid 91824] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91822] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91822] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91825 attached
+ => {parent_tid=[91825]}, 88) = 91825
+[pid 91825] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91822] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91825] <... rseq resumed>)         = 0
+[pid 91822] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91825] set_robust_list(0x7f85a2182920, 24) = 0
+[pid 91825] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91822] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91825, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91825] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91825] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91825] exit(0)                     = ?
+[pid 91825] +++ exited with 0 +++
+[pid 91822] <... futex resumed>)        = 0
+[pid 91822] futex(0x7f85a1180910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91823, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91824] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91824] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91826 attached
+ <unfinished ...>
+[pid 91826] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91824] <... clone3 resumed> => {parent_tid=[91826]}, 88) = 91826
+[pid 91826] <... rseq resumed>)         = 0
+[pid 91824] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91826] set_robust_list(0x7f85a2182920, 24) = 0
+[pid 91824] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91826] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91824] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91826, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91826] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91826] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91826] exit(0)                     = ?
+[pid 91826] +++ exited with 0 +++
+[pid 91824] <... futex resumed>)        = 0
+[pid 91824] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91824] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91827 attached
+ <unfinished ...>
+[pid 91827] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91824] <... clone3 resumed> => {parent_tid=[91827]}, 88) = 91827
+[pid 91827] <... rseq resumed>)         = 0
+[pid 91824] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91827] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91824] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91827] <... set_robust_list resumed>) = 0
+[pid 91827] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91824] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91827, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91827] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91827] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91827] exit(0)                     = ?
+[pid 91827] +++ exited with 0 +++
+[pid 91824] <... futex resumed>)        = 0
+[pid 91824] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91824] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91824] exit(0)                     = ?
+[pid 91824] +++ exited with 0 +++
+[pid 91823] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91823] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2182910, parent_tid=0x7f85a2182910, exit_signal=0, stack=0x7f85a1982000, stack_size=0x7fff00, tls=0x7f85a2182640}strace: Process 91828 attached
+ <unfinished ...>
+[pid 91828] rseq(0x7f85a2182fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91823] <... clone3 resumed> => {parent_tid=[91828]}, 88) = 91828
+[pid 91828] <... rseq resumed>)         = 0
+[pid 91823] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91828] set_robust_list(0x7f85a2182920, 24 <unfinished ...>
+[pid 91823] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91828] <... set_robust_list resumed>) = 0
+[pid 91828] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91708] futex(0x7f85a1981910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91822, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91823] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91823] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91837 attached
+ <unfinished ...>
+[pid 91837] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91823] <... clone3 resumed> => {parent_tid=[91837]}, 88) = 91837
+[pid 91837] <... rseq resumed>)         = 0
+[pid 91837] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91823] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91837] <... set_robust_list resumed>) = 0
+[pid 91823] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91837] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91823] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91837, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91837] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91837] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91837] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91837] exit(0)                     = ?
+[pid 91837] +++ exited with 0 +++
+[pid 91823] <... futex resumed>)        = 0
+[pid 91823] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91823] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91838 attached
+ <unfinished ...>
+[pid 91838] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91823] <... clone3 resumed> => {parent_tid=[91838]}, 88) = 91838
+[pid 91838] <... rseq resumed>)         = 0
+[pid 91823] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91838] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91823] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91838] <... set_robust_list resumed>) = 0
+[pid 91838] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91823] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91838, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91838] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91838] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91838] exit(0)                     = ?
+[pid 91838] +++ exited with 0 +++
+[pid 91823] <... futex resumed>)        = 0
+[pid 91823] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91823] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91839 attached
+ <unfinished ...>
+[pid 91839] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91823] <... clone3 resumed> => {parent_tid=[91839]}, 88) = 91839
+[pid 91839] <... rseq resumed>)         = 0
+[pid 91823] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91839] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91823] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91839] <... set_robust_list resumed>) = 0
+[pid 91839] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91823] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91839, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91839] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91839] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91839] exit(0)                     = ?
+[pid 91839] +++ exited with 0 +++
+[pid 91823] <... futex resumed>)        = 0
+[pid 91828] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91828] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91840 attached
+ <unfinished ...>
+[pid 91840] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91828] <... clone3 resumed> => {parent_tid=[91840]}, 88) = 91840
+[pid 91840] <... rseq resumed>)         = 0
+[pid 91828] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91840] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91828] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91840] <... set_robust_list resumed>) = 0
+[pid 91840] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91828] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91840, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91840] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91840] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED <unfinished ...>
+[pid 91823] futex(0x7f85a2182910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91828, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91840] <... madvise resumed>)      = 0
+[pid 91840] exit(0)                     = ?
+[pid 91840] +++ exited with 0 +++
+[pid 91828] <... futex resumed>)        = 0
+[pid 91828] rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+[pid 91828] clone3({flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, child_tid=0x7f85a2983910, parent_tid=0x7f85a2983910, exit_signal=0, stack=0x7f85a2183000, stack_size=0x7fff00, tls=0x7f85a2983640}strace: Process 91841 attached
+ <unfinished ...>
+[pid 91841] rseq(0x7f85a2983fe0, 0x20, 0, 0x53053053 <unfinished ...>
+[pid 91828] <... clone3 resumed> => {parent_tid=[91841]}, 88) = 91841
+[pid 91841] <... rseq resumed>)         = 0
+[pid 91828] rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+[pid 91841] set_robust_list(0x7f85a2983920, 24 <unfinished ...>
+[pid 91828] <... rt_sigprocmask resumed>NULL, 8) = 0
+[pid 91841] <... set_robust_list resumed>) = 0
+[pid 91841] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[pid 91828] futex(0x7f85a2983910, FUTEX_WAIT_BITSET|FUTEX_CLOCK_REALTIME, 91841, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+[pid 91841] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91841] madvise(0x7f85a2183000, 8368128, MADV_DONTNEED) = 0
+[pid 91841] exit(0)                     = ?
+[pid 91841] +++ exited with 0 +++
+[pid 91828] <... futex resumed>)        = 0
+[pid 91828] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91828] madvise(0x7f85a1982000, 8368128, MADV_DONTNEED) = 0
+[pid 91828] exit(0)                     = ?
+[pid 91828] +++ exited with 0 +++
+[pid 91823] <... futex resumed>)        = 0
+[pid 91823] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91823] madvise(0x7f85a0980000, 8368128, MADV_DONTNEED) = 0
+[pid 91823] exit(0)                     = ?
+[pid 91823] +++ exited with 0 +++
+[pid 91822] <... futex resumed>)        = 0
+[pid 91822] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91822] madvise(0x7f85a1181000, 8368128, MADV_DONTNEED) = 0
+[pid 91822] exit(0)                     = ?
+[pid 91822] +++ exited with 0 +++
+[pid 91708] <... futex resumed>)        = 0
+[pid 91708] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91708] madvise(0x7f85a2984000, 8368128, MADV_DONTNEED) = 0
+[pid 91708] exit(0)                     = ?
+[pid 91708] +++ exited with 0 +++
+[pid 91701] <... futex resumed>)        = 0
+[pid 91701] munmap(0x7f85a2183000, 8392704) = 0
+[pid 91701] rt_sigprocmask(SIG_BLOCK, ~[RT_1], NULL, 8) = 0
+[pid 91701] madvise(0x7f85a3185000, 8368128, MADV_DONTNEED) = 0
+[pid 91701] exit(0)                     = ?
+[pid 91700] <... futex resumed>)        = 0
+[pid 91701] +++ exited with 0 +++
+munmap(0x7f85a1982000, 8392704)         = 0
+write(1, "sorting is completed in ", 24sorting is completed in ) = 24
+write(1, "/+,\0\5\0\0", 7/+,)              = 7
+write(1, "ms\n", 3ms
+)                     = 3
+write(1, "array sorted\n", 13array sorted
+)          = 13
+munmap(0x7f85a3986000, 800000000)       = 0
+close(3)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
