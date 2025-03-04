@@ -27,40 +27,44 @@ int main(int argc, char **argv)
 {
     if (argc != 3)
     {
-        const char msg[] = "usage: ./parent <filename1> <filename2>\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        const char msg[] = "error: unknown args\n";
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
     srand(time(NULL));
 
+    // NOTE: Открываем область разделяемой памяти
     int shm_fd = shm_open(SHM_NAME, O_CREAT | O_RDWR, 0600);
     if (shm_fd == -1)
     {
         const char msg[] = "error: failed to create shared memory\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
+    // NOTE: Устанавливаем размер области разделяемой памяти
     if (ftruncate(shm_fd, sizeof(struct shared_memory)) == -1)
     {
         const char msg[] = "error: failed to set size of shared memory\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         close(shm_fd);
         shm_unlink(SHM_NAME);
         exit(EXIT_FAILURE);
     }
 
+    // NOTE: Отображаем область памяти в адресное пространство процесса
     struct shared_memory *shm_ptr = mmap(NULL, sizeof(struct shared_memory), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
     if (shm_ptr == MAP_FAILED)
     {
         const char msg[] = "error: failed to map shared memory\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         close(shm_fd);
         shm_unlink(SHM_NAME);
         exit(EXIT_FAILURE);
     }
 
+    // NOTE: Инициализирую семафоры
     sem_t *sem_producer = sem_open(SEM_PRODUSER, O_CREAT, 0600, 1);
     sem_t *sem_consumer1 = sem_open(SEM_CONSUMER1, O_CREAT, 0600, 0);
     sem_t *sem_consumer2 = sem_open(SEM_CONSUMER2, O_CREAT, 0600, 0);
@@ -68,7 +72,7 @@ int main(int argc, char **argv)
     if (sem_producer == SEM_FAILED || sem_consumer1 == SEM_FAILED || sem_consumer2 == SEM_FAILED)
     {
         const char msg[] = "error: failed to create semaphores\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
@@ -78,7 +82,7 @@ int main(int argc, char **argv)
     {
         execlp(CHILD1_PROGRAM_NAME, CHILD1_PROGRAM_NAME, argv[1], NULL);
         const char msg[] = "error: failed to exec child1\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
@@ -88,16 +92,17 @@ int main(int argc, char **argv)
     {
         execlp(CHILD2_PROGRAM_NAME, CHILD2_PROGRAM_NAME, argv[2], NULL);
         const char msg[] = "error: failed to exec child2\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
     char buf[BUFFER_SIZE];
     ssize_t bytes_read;
 
+    // NOTE: Читаем данные
     while ((bytes_read = read(STDIN_FILENO, buf, sizeof(buf) - 1)) > 0)
     {
-        sem_wait(sem_producer);
+        sem_wait(sem_producer); // NOTE: Уменьшаем значение семафора
 
         shm_ptr->length = bytes_read;
         for (size_t i = 0; i < bytes_read; ++i)
@@ -108,11 +113,11 @@ int main(int argc, char **argv)
         int probability = rand() % 100;
         if (probability < 80)
         {
-            sem_post(sem_consumer1);
+            sem_post(sem_consumer1); // NOTE: Пинаем семафор1
         }
         else
         {
-            sem_post(sem_consumer2);
+            sem_post(sem_consumer2); // NOTE: Пинаем семафор2
         }
     }
 

@@ -7,7 +7,7 @@
 #include <sys/types.h>
 
 #define SHM_NAME "/shared_memory_example"
-#define SEM_CONSUMER1 "/child2"
+#define SEM_CONSUMER2 "/child2"
 #define SEM_PRODUCER "/parent"
 
 struct shared_memory
@@ -31,22 +31,17 @@ void reverse_string(char *str, size_t length)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
-    {
-        const char msg[] = "usage: ./child1 <filename>\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
-        exit(EXIT_FAILURE);
-    }
-
+    // NOTE: Открываем файл для записи
     int file = open(argv[1], O_WRONLY | O_CREAT | O_APPEND, 0600);
     if (file == -1)
     {
         const char msg[] = "error: failed to open file\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
-    sem_t *sem_consumer = sem_open(SEM_CONSUMER1, 0);
+    // NOTE: Подключаемся к семафорам и разделяемой памяти
+    sem_t *sem_consumer = sem_open(SEM_CONSUMER2, 0);
     sem_t *sem_producer = sem_open(SEM_PRODUCER, 0);
     int shm_fd = shm_open(SHM_NAME, O_RDWR, 0600);
     struct shared_memory *shm_ptr = mmap(NULL, sizeof(struct shared_memory), PROT_READ | PROT_WRITE, MAP_SHARED, shm_fd, 0);
@@ -54,10 +49,11 @@ int main(int argc, char **argv)
     if (sem_consumer == SEM_FAILED || sem_producer == SEM_FAILED || shm_ptr == MAP_FAILED)
     {
         const char msg[] = "error: failed to open resources\n";
-        write(STDERR_FILENO, msg, sizeof(msg) - 1);
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
+    // NOTE: Обрабатываем данные
     while (1)
     {
         sem_wait(sem_consumer);
@@ -72,14 +68,15 @@ int main(int argc, char **argv)
         if (write(file, shm_ptr->buffer, shm_ptr->length) != (ssize_t)shm_ptr->length)
         {
             const char msg[] = "error: failed to write to file\n";
-            write(STDERR_FILENO, msg, sizeof(msg) - 1);
+            write(STDERR_FILENO, msg, sizeof(msg));
             close(file);
             exit(EXIT_FAILURE);
         }
 
-        sem_post(sem_producer);
+        sem_post(sem_producer); // NOTE: Уведомляем родительский процесс
     }
 
+    // NOTE: Закрываем файл и освобождаем память
     close(file);
     munmap(shm_ptr, sizeof(struct shared_memory));
     return 0;
