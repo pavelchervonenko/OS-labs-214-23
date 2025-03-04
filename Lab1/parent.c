@@ -13,9 +13,8 @@ int main(int argc, char **argv)
 {
     if (argc != 3)
     {
-        char msg[1024];
-        uint32_t len = snprintf(msg, sizeof(msg) - 1, "usage: %s <filename1> <filename2>\n", argv[0]);
-        write(STDERR_FILENO, msg, len);
+        const char msg[] = "error: unknown args\n";
+        write(STDERR_FILENO, msg, sizeof(msg));
         exit(EXIT_FAILURE);
     }
 
@@ -168,7 +167,7 @@ int main(int argc, char **argv)
             close(pipe1[1]);
             close(pipe2[1]);
 
-            // NOTE: `wait` блокирует родительский элемент до тех пор, пока дочерний элемент не выйдет из системы
+            // NOTE: ожидаем завершение дочерних процессов
             int child_status1, child_status2;
             waitpid(child1, &child_status1, 0);
             waitpid(child2, &child_status2, 0);

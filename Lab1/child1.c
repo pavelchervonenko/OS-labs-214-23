@@ -39,7 +39,7 @@ int main(int argc, char **argv)
         if (bytes < 0)
         {
             const char msg[] = "error: failed to read from stdin\n";
-            write(STDERR_FILENO, msg, sizeof(msg) - 1);
+            write(STDERR_FILENO, msg, sizeof(msg));
             close(file);
             exit(EXIT_FAILURE);
         }
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
         if (written != bytes - 1)
         {
             const char msg[] = "error: failed to write to file\n";
-            write(STDERR_FILENO, msg, sizeof(msg) - 1);
+            write(STDERR_FILENO, msg, sizeof(msg));
             close(file);
             exit(EXIT_FAILURE);
         }
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
         if (write(file, "\n", 1) != 1) // NOTE: Добавляем перевод строки после записи
         {
             const char msg[] = "error: failed to write newline to file\n";
-            write(STDERR_FILENO, msg, sizeof(msg) - 1);
+            write(STDERR_FILENO, msg, sizeof(msg));
             close(file);
             exit(EXIT_FAILURE);
         }
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     if (bytes == 0)
     {
         const char msg[] = "end of input\n";
-        write(STDOUT_FILENO, msg, sizeof(msg) - 1);
+        write(STDOUT_FILENO, msg, sizeof(msg));
     }
 
     exit(EXIT_SUCCESS);
