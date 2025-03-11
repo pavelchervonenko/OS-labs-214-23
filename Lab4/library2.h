@@ -1,10 +1,12 @@
+#include <stddef.h>
+#include <stdint.h>
+
 #ifndef __LIBRARY2_H
 #define __LIBRARY2_H
 
-#include <stddef.h>
-#include <stdlib.h>
-
-#define MAX_ORDER 20
+#define MIN_BLOCK_SIZE 8
+#define MAX_BLOCK_SIZE 1024
+#define NUM_LISTS 11
 
 typedef struct Block
 {
@@ -13,9 +15,9 @@ typedef struct Block
 
 typedef struct
 {
-    Block *free_lists[MAX_ORDER + 1];
     void *memory;
     size_t size;
+    Block *free_lists[NUM_LISTS];
 } Allocator;
 
 Allocator *allocator_create(void *const memory, const size_t size);

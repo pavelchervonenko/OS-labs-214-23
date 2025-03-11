@@ -1,25 +1,24 @@
+#include <stddef.h>
+#include <stdint.h>
+
 #ifndef __LIBRARY1_H
 #define __LIBRARY1_H
 
-#include <stddef.h>
-#include <stdlib.h>
+#define PAGE_SIZE 4096
+#define MAX_ORDER 10
 
-#define PAGE_SIZE 4096 
-#define MAX_ORDER 10   
-
-typedef struct Page
+typedef struct
 {
-    struct Page *next_free;
-    size_t block_size;
-    void *large_block;
-} Page;
+    size_t size;
+    int is_free;
+    void *next;
+} Block;
 
-typedef struct Allocator
+typedef struct
 {
     void *memory;
     size_t size;
-    Page *free_pages;
-    Page *free_lists[MAX_ORDER + 1];
+    void *free_lists[MAX_ORDER + 1];
 } Allocator;
 
 Allocator *allocator_create(void *const memory, const size_t size);

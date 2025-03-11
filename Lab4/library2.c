@@ -1,7 +1,4 @@
 #include "library2.h"
-#include "stdint.h"
-#include "unistd.h"
-#include <stdio.h>
 
 #ifdef _MSC_VER
 #define EXPORT __declspec(dllexport)
@@ -9,67 +6,98 @@
 #define EXPORT
 #endif
 
+static size_t get_index(size_t size)
+{
+    size_t index = 0;
+    size_t block_size = MIN_BLOCK_SIZE;
+    while (block_size < size)
+    {
+        block_size <<= 1;
+        index++;
+    }
+    return index;
+}
+
+static size_t get_block_size(size_t index)
+{
+    return MIN_BLOCK_SIZE << index;
+}
+
 EXPORT Allocator *allocator_create(void *const memory, const size_t size)
 {
-    if (!memory || size < 1)
-    {
-        return NULL;
-    }
+    Allocator *allocator = (Allocator *)memory;
+    allocator->memory = memory;
+    allocator->size = size;
 
-    Allocator *allocator = (Allocator *)malloc(sizeof(Allocator));
-    if (!allocator)
-    {
-        return NULL;
-    }
-
-    for (int i = 0; i <= MAX_ORDER; i++)
+    for (int i = 0; i < NUM_LISTS; i++)
     {
         allocator->free_lists[i] = NULL;
     }
 
-    size_t total_size = size;
-    size_t block_size = (size_t)1 << MAX_ORDER;
+    size_t remaining_size = size - sizeof(Allocator);
+    void *current = (void *)((char *)memory + sizeof(Allocator));
 
-    while (total_size >= block_size)
+    while (remaining_size >= MIN_BLOCK_SIZE)
     {
-        Block *block = (Block *)((uint8_t *)memory + (total_size - block_size));
-        block->next = allocator->free_lists[MAX_ORDER];
-        allocator->free_lists[MAX_ORDER] = block;
-        total_size -= block_size;
+        size_t block_size = MIN_BLOCK_SIZE;
+        size_t index = 0;
+
+        while (block_size * 2 <= remaining_size)
+        {
+            block_size <<= 1;
+            index++;
+        }
+
+        Block *block = (Block *)current;
+        block->next = allocator->free_lists[index];
+        allocator->free_lists[index] = block;
+
+        current = (void *)((char *)current + block_size);
+        remaining_size -= block_size;
     }
 
     return allocator;
 }
 
+EXPORT void allocator_destroy(Allocator *const allocator)
+{
+    (void)allocator;
+}
+
 EXPORT void *allocator_alloc(Allocator *const allocator, const size_t size)
 {
-    if (!allocator || size <= 0)
+    if (size == 0 || size > MAX_BLOCK_SIZE)
     {
         return NULL;
     }
 
-    int order = 0;
-    while ((size_t)(1 << order) < size && order < MAX_ORDER)
+    size_t index = get_index(size);
+    if (index >= NUM_LISTS)
     {
-        order++;
+        return NULL;
     }
 
-    for (int i = order; i <= MAX_ORDER; i++)
+    if (allocator->free_lists[index] != NULL)
     {
-        if (allocator->free_lists[i])
+        Block *block = allocator->free_lists[index];
+        allocator->free_lists[index] = block->next;
+        return (void *)block;
+    }
+
+    for (size_t i = index + 1; i < NUM_LISTS; i++)
+    {
+        if (allocator->free_lists[i] != NULL)
         {
             Block *block = allocator->free_lists[i];
             allocator->free_lists[i] = block->next;
 
-            while (i > order)
-            {
-                i--;
-                Block *buddy = (Block *)((uint8_t *)block + ((size_t)1 << i));
-                buddy->next = allocator->free_lists[i];
-                allocator->free_lists[i] = buddy;
-            }
+            size_t block_size = get_block_size(i);
+            size_t new_block_size = block_size / 2;
 
-            block->next = (Block *)((uintptr_t)allocator->free_lists[order] | 1);
+            Block *new_block = (Block *)((char *)block + new_block_size);
+            new_block->next = allocator->free_lists[i - 1];
+            allocator->free_lists[i - 1] = new_block;
+
             return (void *)block;
         }
     }
@@ -79,64 +107,64 @@ EXPORT void *allocator_alloc(Allocator *const allocator, const size_t size)
 
 EXPORT void allocator_free(Allocator *const allocator, void *const memory)
 {
-    if (!allocator || !memory)
+    if (memory == NULL)
     {
         return;
     }
 
-    Block *block = (Block *)memory;
-    int order = 0;
-    while (order <= MAX_ORDER)
+    size_t block_size = MIN_BLOCK_SIZE;
+    size_t index = 0;
+    uintptr_t memory_offset = (uintptr_t)memory - (uintptr_t)allocator->memory;
+
+    while (block_size < MAX_BLOCK_SIZE)
     {
-        if ((uintptr_t)block->next & 1)
+        if (memory_offset % block_size == 0)
         {
             break;
         }
-        order++;
+        block_size <<= 1;
+        index++;
     }
 
-    block->next = allocator->free_lists[order];
-    allocator->free_lists[order] = block;
+    Block *block = (Block *)memory;
+    block->next = allocator->free_lists[index];
+    allocator->free_lists[index] = block;
 
-    while (order < MAX_ORDER)
+    while (index < NUM_LISTS - 1)
     {
-        Block *buddy = (Block *)((uintptr_t)block ^ ((size_t)1 << order));
+        uintptr_t buddy_offset = memory_offset ^ block_size;
+        Block *buddy = (Block *)((uintptr_t)allocator->memory + buddy_offset);
         Block *prev = NULL;
-        Block *curr = allocator->free_lists[order];
+        Block *curr = allocator->free_lists[index];
 
-        while (curr && curr != buddy)
+        while (curr != NULL)
         {
+            if (curr == buddy)
+            {
+                if (prev == NULL)
+                {
+                    allocator->free_lists[index] = curr->next;
+                }
+                else
+                {
+                    prev->next = curr->next;
+                }
+
+                block_size <<= 1;
+                index++;
+                memory_offset = memory_offset & ~(block_size - 1);
+                block = (Block *)((uintptr_t)allocator->memory + memory_offset);
+                block->next = allocator->free_lists[index];
+                allocator->free_lists[index] = block;
+                break;
+            }
             prev = curr;
             curr = curr->next;
         }
 
-        if (curr != buddy)
+        if (curr == NULL)
+        {
             break;
-
-        if (prev)
-        {
-            prev->next = curr->next;
         }
-        else
-        {
-            allocator->free_lists[order] = curr->next;
-        }
-
-        if (block > buddy)
-        {
-            block = buddy;
-        }
-
-        order++;
-        block->next = allocator->free_lists[order];
-        allocator->free_lists[order] = block;
-    }
-}
-
-EXPORT void allocator_destroy(Allocator *const allocator)
-{
-    if (allocator)
-    {
-        free(allocator);
     }
 }

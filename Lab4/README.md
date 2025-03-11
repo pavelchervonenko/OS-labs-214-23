@@ -20,10 +20,17 @@
 
 ### Компиляция
 ```sh
-
+gcc -shared -fPIC  -o library1.so library1.c 
+gcc -shared -fPIC  -o library2.so library2.c 
+gcc -o main main.c -ldl
 ```
 
 ### Запуск
+Алгоритм Мака-Кьюзика-Кэрелса
 ```sh
-./
+ ./main ./library1.so
+```
+Алгоритм выделения памяти по степени 2
+```sh
+ ./main ./library2.so
 ```
